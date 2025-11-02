@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LiYana programmi — Компьютер негіздері</title>
+<style>
+  :root{
+    --blue:#0b66ff;
+    --dark:#1f2d3d;
+    --muted:#6b7280;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background: linear-gradient(180deg,#f3f7fb,#ffffff);
+    color:var(--dark);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:36px auto;padding:20px;}
+  .card{
+    background:var(--card);
+    border-radius:14px;
+    padding:28px;
+    box-shadow:0 6px 30px rgba(20,40,80,0.06);
+  }
+  .center{text-align:center}
+  h1{font-size:42px;margin:6px 0 10px;color:var(--blue)}
+  h2{font-size:22px;color:var(--dark);margin:12px 0}
+  p{line-height:1.6;color:#222}
+  .subtitle{color:var(--muted);margin-bottom:18px}
+  .nav{margin-top:20px;text-align:center}
+  .btn{
+    display:inline-block;padding:10px 18px;margin:6px;border-radius:10px;border:0;
+    background:var(--blue);color:#fff;font-weight:700;cursor:pointer;font-size:16px;
+  }
+  .btn.secondary{background:#6b7280}
+  iframe{width:100%;height:420px;border-radius:10px;border:0;margin-top:12px}
+  .page{display:none}
+  .visible{display:block}
+  .content-block{margin-top:16px}
+  .question{margin:14px 0;padding:12px;border-radius:8px;border:1px solid #f0f2f6}
+  .question strong{display:block;margin-bottom:8px}
+  label{cursor:pointer}
+  .result-box{margin-top:20px;padding:20px;border-radius:12px;background:linear-gradient(#fff,#f8fbff);border:1px solid #e6eefc;text-align:center}
+  .score{font-size:40px;color:var(--blue);font-weight:800}
+  .diploma{
+    margin:20px auto;padding:28px;border:8px solid #caa052;border-radius:8px;max-width:760px;
+    text-align:center;background:linear-gradient(#fff,#fff);
+  }
+  .coat{width:90px;margin-bottom:6px}
+  footer{margin-top:24px;text-align:center;color:var(--muted);font-size:14px}
+  /* print styles for diploma */
+  @media print {
+    body{background:white}
+    .wrap{margin:0;padding:0}
+    header,.nav,footer,.btn{display:none}
+    .card{box-shadow:none;border-radius:0;padding:0}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Page 1: Title -->
+    <div id="pg1" class="card page visible center">
+        <img src="emblem.png" alt="LiYana logo" class="emblem"
+        style="width: 250px; display: block; margin: 20px auto;">
+      <h1>LiYana programmi</h1>
+      <div class="subtitle">"Компьютер, оның ішкі және сыртқы компоненттері және бағдарламалық жасақтама туралы" — толық курс (қазақша)</div>
+      <div>
+        <button class="btn" onclick="go(2)">Келесі</button>
+      </div>
+    </div>
+
+    <!-- Page 2: Intro -->
+    <div id="pg2" class="card page">
+      <h2 class="center">Компьютер дегеніміз не?</h2>
+      <div class="content-block">
+        <p><strong>Компьютер</strong> — ақпаратты қабылдайтын, өңдейтін, сақтайтын және шығаратын электрондық құрылғы. Бұл адамға әртүрлі тапсырмаларды орындауға көмектеседі: санау, мәтін жазу, сурет салу, интернеттен деректерді іздеу, музыка тыңдау және т.б.</p>
+      </div>
+      <div class="nav">
+        <button class="btn secondary" onclick="go(1)">Артқа</button>
+        <button class="btn" onclick="go(3)">Келесі</button>
+      </div>
+    </div>
+
+    <!-- Page 3: Inner components -->
+    <div id="pg3" class="card page">
+      <h2 class="center">Компьютердің ішкі компоненттері</h2>
+      <div class="content-block">
+        <p><strong>Негізгі ішкі құрылғылар:</strong></p>
+        <p><b>Аналық плата</b><br>Бұл компьютердің негізгі тақтасы. Оған барлық басқа бөліктер қосылады — процессор, жад, графикалық карта және басқа құрылғылар. Аналық плата оларды бір-бірімен байланыстырады және олардың арасындағы сигналдарды жібереді.</p>
+        <p><b>Процессор</b><br>Бұл компьютердің "миы". Ол барлық есептеулер мен командаларды орындайды. Компьютердің қаншалықты жылдам жұмыс істейтіні процессордың жылдамдығына байланысты.</p>
+        <p><b>Жедел жад</b><br>Дәл қазір компьютер жұмыс істейтін деректерді сақтайды. Компьютерді өшірген кезде жедел жадтан ақпарат жоғалады.</p>
+        <p><b>Қатты диск немесе SSD</b><br>Бұл ақпаратты сақтауға арналған құрылғы. Онда бағдарламалар, құжаттар, фотосуреттер және басқа файлдар сақталады. SSD кәдімгі қатты дискіге қарағанда жылдамырақ.</p>
+        <p><b>Графикалық карта</b><br>Экрандағы кескінге жауап береді. Графикалық карта неғұрлым қуатты болса, компьютер ойындар мен графикамен соғұрлым жақсы жұмыс істейді.</p>
+        <p><b>Қуат көзі</b><br>Компьютердің барлық бөліктеріне электр қуатын береді. Қуат көзі болмаса, компьютер жұмыс істей алмайды.</p>
+        <p><b>Салқындату жүйесі</b><br>Процессорды және басқа бөлшектерді салқындататын желдеткіштерден (салқындатқыштардан) тұрады. Салқындатусыз компьютер қызып кетуі және істен шығуы мүмкін.</p>
+        <p><em>Компьютердің барлық ішкі бөліктері бір-бірімен тығыз байланысты. Егер олардың кем дегенде біреуі жұмысын тоқтатса, компьютер қосылмауы немесе дұрыс жұмыс істемеуі мүмкін.</em></p>
+
+        <iframe src="https://www.youtube.com/embed/R1RH-KdXcls" title="Видео: ішкі компоненттер" allowfullscreen></iframe>
+      </div>
+      <div class="nav">
+        <button class="btn secondary" onclick="go(2)">Артқа</button>
+        <button class="btn" onclick="go(4)">Келесі</button>
+      </div>
+    </div>
+
+    <!-- Page 4: External devices -->
+    <div id="pg4" class="card page">
+      <h2 class="center">Компьютердің сыртқы құрылғылары</h2>
+      <div class="content-block">
+        <p><strong>Компьютердің сыртқы құрылғылары</strong></p>
+        <p>Сыртқы құрылғылар-бұл жүйелік блоктың сыртында орналасқан және ақпаратты енгізуге, шығаруға немесе сақтауға қызмет ететін компьютер бөліктері. Олар адамға компьютермен өзара әрекеттесуге көмектеседі.</p>
+        <p><b>1. Ақпаратты енгізу құрылғылары</b><br>Пернетақта, тінтуір, сканер, микрофон, веб-камера.</p>
+        <p><b>2. Ақпаратты шығару құрылғылары</b><br>Монитор, принтер, динамиктер, проектор.</p>
+        <p><b>3. Деректерді сақтау және беру құрылғылары</b><br>Флэш-диск (USB), сыртқы қатты диск, оптикалық дискілер (CD, DVD), жад картасы.</p>
+        <iframe src="https://www.youtube.com/embed/iaBy7Aq5iMQ" title="Видео: сыртқы құрылғылар" allowfullscreen></iframe>
+      </div>
+      <div class="nav">
+        <button class="btn secondary" onclick="go(3)">Артқа</button>
+        <button class="btn" onclick="go(5)">Келесі</button>
+      </div>
+    </div>
+
+    <!-- Page 5: Software -->
+    <div id="pg5" class="card page">
+      <h2 class="center">Бағдарламалық қамтамасыз ету</h2>
+      <div class="content-block">
+        <p>Бағдарламалық жасақтама — бұл компьютердің жұмысын басқаратын және әртүрлі тапсырмаларды орындауға мүмкіндік беретін барлық бағдарламалардың жиынтығы. Бағдарламаларсыз компьютер-бұл ештеңе істей алмайтын "темір".</p>
+
+        <p><b>1. Жүйелік БҚ</b><br>Операциялық жүйе (ОЖ) — негізгі бағдарлама, мысалы Windows, Linux, macOS; драйверлер; утилиталар.</p>
+        <p><b>2. Қолданбалы БҚ</b><br>Microsoft Word, Excel, браузерлер, мультимедиа ойнатқыштар және т.б.</p>
+        <p><b>3. Бағдарламалау жүйелері</b><br>Python, C++, Java, Visual Studio Code — жаңа бағдарламалар жасауға қажетті құралдар.</p>
+
+        <iframe src="https://www.youtube.com/embed/wLP0rlEvZ08" title="Видео: бағдарламалық жасақтама" allowfullscreen></iframe>
+      </div>
+      <div class="nav">
+        <button class="btn secondary" onclick="go(4)">Артқа</button>
+        <button class="btn" onclick="go(6)">Келесі</button>
+      </div>
+    </div>
+
+    <!-- Page 6: TEST (45 questions) -->
+    <div id="pg6" class="card page">
+      <h2 class="center">Тест — барлық тақырыптар</h2>
+      <div class="content-block">
+        <form id="quizForm">
+          <!-- We'll insert all 45 questions here. Each radio group has name q1..q45.
+               The correct option has value="correct". -->
+          
+          <!-- Topic 1: internal components (questions 1..15) -->
+          <h3>1-тақырып: Компьютердің ішкі компоненттері</h3>
+          <!-- q1 -->
+          <div class="question">
+            <strong>1. Компьютердің "миы" дегеніміз не?</strong>
+            <label><input type="radio" name="q1" value="a"> Қатты диск</label><br>
+            <label><input type="radio" name="q1" value="correct"> Процессор</label><br>
+            <label><input type="radio" name="q1" value="c"> Жедел жады</label>
+          </div>
+          <!-- q2 -->
+          <div class="question">
+            <strong>2. Процессор не істейді?</strong>
+            <label><input type="radio" name="q2" value="correct"> Есептеулер мен командаларды орындайды</label><br>
+            <label><input type="radio" name="q2" value="b"> Музыканы сақтайды</label><br>
+            <label><input type="radio" name="q2" value="c"> Мониторда суретті көрсетеді</label>
+          </div>
+          <!-- q3 -->
+          <div class="question">
+            <strong>3. Компьютер жұмыс істеп тұрған кезде деректер уақытша қайда сақталады?</strong>
+            <label><input type="radio" name="q3" value="a"> Флэш-дискіде</label><br>
+            <label><input type="radio" name="q3" value="correct"> Жедел жадта</label><br>
+            <label><input type="radio" name="q3" value="c"> Қатты дискіде</label>
+          </div>
+          <!-- q4 -->
+          <div class="question">
+            <strong>4. Компьютерді өшіргеннен кейін жедел жадтағы деректермен не болады?</strong>
+            <label><input type="radio" name="q4" value="a"> Олар сақталады</label><br>
+            <label><input type="radio" name="q4" value="correct"> Олар жойылады</label><br>
+            <label><input type="radio" name="q4" value="c"> Олар дискіге тасымалданады</label>
+          </div>
+          <!-- q5 -->
+          <div class="question">
+            <strong>5. Файлдар мен бағдарламаларды үнемі сақтайтын құрылғы қалай аталады?</strong>
+            <label><input type="radio" name="q5" value="correct"> Қатты диск немесе SSD</label><br>
+            <label><input type="radio" name="q5" value="b"> Процессор</label><br>
+            <label><input type="radio" name="q5" value="c"> Пернетақта</label>
+          </div>
+          <!-- q6 -->
+          <div class="question">
+            <strong>6. Монитордағы кескінге қандай компонент жауап береді?</strong>
+            <label><input type="radio" name="q6" value="correct"> Графикалық карта</label><br>
+            <label><input type="radio" name="q6" value="b"> Процессор</label><br>
+            <label><input type="radio" name="q6" value="c"> Жедел жады</label>
+          </div>
+          <!-- q7 -->
+          <div class="question">
+            <strong>7. Қуат көзі не істейді?</strong>
+            <label><input type="radio" name="q7" value="correct"> Компьютердің барлық бөліктеріне электр қуатын береді</label><br>
+            <label><input type="radio" name="q7" value="b"> Файлдарды сақтайды</label><br>
+            <label><input type="radio" name="q7" value="c"> Интернет жылдамдығын арттырады</label>
+          </div>
+          <!-- q8 -->
+          <div class="question">
+            <strong>8. Барлық құрылғылар қосылған негізгі тақта қалай аталады?</strong>
+            <label><input type="radio" name="q8" value="correct"> Аналық плата</label><br>
+            <label><input type="radio" name="q8" value="b"> Графикалық карта</label><br>
+            <label><input type="radio" name="q8" value="c"> Қатты диск</label>
+          </div>
+          <!-- q9 -->
+          <div class="question">
+            <strong>9. Процессорды салқындатуға қандай компонент жауап береді?</strong>
+            <label><input type="radio" name="q9" value="correct"> Желдеткіш (салқындатқыш)</label><br>
+            <label><input type="radio" name="q9" value="b"> Жедел жад</label><br>
+            <label><input type="radio" name="q9" value="c"> Қуат көзі</label>
+          </div>
+          <!-- q10 -->
+          <div class="question">
+            <strong>10. Компьютер параметрлері туралы тұрақты ақпаратты сақтайтын чип қалай аталады?</strong>
+            <label><input type="radio" name="q10" value="correct"> BIOS</label><br>
+            <label><input type="radio" name="q10" value="b"> SSD</label><br>
+            <label><input type="radio" name="q10" value="c"> Графикалық карта</label>
+          </div>
+          <!-- q11 -->
+          <div class="question">
+            <strong>11. RAM аббревиатурасы нені білдіреді?</strong>
+            <label><input type="radio" name="q11" value="correct"> Жедел жады</label><br>
+            <label><input type="radio" name="q11" value="b"> Тұрақты жады</label><br>
+            <label><input type="radio" name="q11" value="c"> Графикалық карта</label>
+          </div>
+          <!-- q12 -->
+          <div class="question">
+            <strong>12. Графикалық карта не үшін қажет?</strong>
+            <label><input type="radio" name="q12" value="correct"> Суреттер мен бейнелерді өңдеуге арналған</label><br>
+            <label><input type="radio" name="q12" value="b"> Файлдарды сақтауға арналған</label><br>
+            <label><input type="radio" name="q12" value="c"> Компьютерді қуаттандыру үшін</label>
+          </div>
+          <!-- q13 -->
+          <div class="question">
+            <strong>13. Қандай элемент процессорды, жадты және басқа құрылғыларды бір жүйеге қосады?</strong>
+            <label><input type="radio" name="q13" value="correct"> Аналық плата</label><br>
+            <label><input type="radio" name="q13" value="b"> Графикалық карта</label><br>
+            <label><input type="radio" name="q13" value="c"> SSD</label>
+          </div>
+          <!-- q14 -->
+          <div class="question">
+            <strong>14. Қуат көзі жұмыс істемесе не болады?</strong>
+            <label><input type="radio" name="q14" value="correct"> Компьютер қосылмайды</label><br>
+            <label><input type="radio" name="q14" value="b"> Компьютер баяу жұмыс істейді</label><br>
+            <label><input type="radio" name="q14" value="c"> Компьютер қызып кетеді</label>
+          </div>
+          <!-- q15 -->
+          <div class="question">
+            <strong>15. Неліктен компьютерге салқындату жүйесі қажет?</strong>
+            <label><input type="radio" name="q15" value="correct"> Қызып кетудің алдын алу үшін</label><br>
+            <label><input type="radio" name="q15" value="b"> Сурет сапасын жақсарту үшін</label><br>
+            <label><input type="radio" name="q15" value="c"> Жадты арттыру үшін</label>
+          </div>
+
+          <!-- Topic 2: external devices (q16..q30) -->
+          <h3>2-тақырып: Компьютердің сыртқы құрылғылары</h3>
+          <!-- q16 -->
+          <div class="question">
+            <strong>16. Компьютердің сыртқы құрылғылары не деп аталады?</strong>
+            <label><input type="radio" name="q16" value="correct"> Жүйелік блокқа сырттан қосылған құрылғылар</label><br>
+            <label><input type="radio" name="q16" value="b"> Тек компьютерде бар</label><br>
+            <label><input type="radio" name="q16" value="c"> Тек сақтау құрылғылары</label>
+          </div>
+          <!-- q17 -->
+          <div class="question">
+            <strong>17. Пернетақта қай топқа жатады?</strong>
+            <label><input type="radio" name="q17" value="correct"> Ақпаратты енгізу құрылғыларына</label><br>
+            <label><input type="radio" name="q17" value="b"> Ақпаратты шығару құрылғыларына</label><br>
+            <label><input type="radio" name="q17" value="c"> Сақтау құрылғыларына</label>
+          </div>
+          <!-- q18 -->
+          <div class="question">
+            <strong>18. Курсорды басқару үшін қандай құрылғы қолданылады?</strong>
+            <label><input type="radio" name="q18" value="correct"> Тышқан</label><br>
+            <label><input type="radio" name="q18" value="b"> Принтер</label><br>
+            <label><input type="radio" name="q18" value="c"> Монитор</label>
+          </div>
+          <!-- q19 -->
+          <div class="question">
+            <strong>19. Сканер не істейді?</strong>
+            <label><input type="radio" name="q19" value="correct"> Суреттерді немесе құжаттарды компьютерге тасымалдайды</label><br>
+            <label><input type="radio" name="q19" value="b"> Мәтінді басып шығарады</label><br>
+            <label><input type="radio" name="q19" value="c"> Дыбысты шығарады</label>
+          </div>
+          <!-- q20 -->
+          <div class="question">
+            <strong>20. Монитор қай топқа жатады?</strong>
+            <label><input type="radio" name="q20" value="a"> Енгізу құрылғыларына</label><br>
+            <label><input type="radio" name="q20" value="correct"> Шығару құрылғыларына</label><br>
+            <label><input type="radio" name="q20" value="c"> Сақтау құрылғыларына</label>
+          </div>
+          <!-- q21 -->
+          <div class="question">
+            <strong>21. Принтер не істейді?</strong>
+            <label><input type="radio" name="q21" value="correct"> Құжаттар мен суреттерді басып шығарады</label><br>
+            <label><input type="radio" name="q21" value="b"> Құжаттарды сканерлейді</label><br>
+            <label><input type="radio" name="q21" value="c"> Экранда сурет көрсетеді</label>
+          </div>
+          <!-- q22 -->
+          <div class="question">
+            <strong>22. Қандай құрылғы дыбысты шығарады?</strong>
+            <label><input type="radio" name="q22" value="correct"> Динамиктер немесе құлаққаптар</label><br>
+            <label><input type="radio" name="q22" value="b"> Пернетақта</label><br>
+            <label><input type="radio" name="q22" value="c"> Қатты диск</label>
+          </div>
+          <!-- q23 -->
+          <div class="question">
+            <strong>23. Проектор не үшін қолданылады?</strong>
+            <label><input type="radio" name="q23" value="correct"> Суретті экранға немесе қабырғаға шығару үшін</label><br>
+            <label><input type="radio" name="q23" value="b"> Ақпаратты жазу үшін</label><br>
+            <label><input type="radio" name="q23" value="c"> Компьютерді салқындату үшін</label>
+          </div>
+          <!-- q24 -->
+          <div class="question">
+            <strong>24. Деректерді сақтау және тасымалдау үшін қандай құрылғы қызмет етеді?</strong>
+            <label><input type="radio" name="q24" value="correct"> Флэш-диск</label><br>
+            <label><input type="radio" name="q24" value="b"> Монитор</label><br>
+            <label><input type="radio" name="q24" value="c"> Пернетақта</label>
+          </div>
+          <!-- q25 -->
+          <div class="question">
+            <strong>25. Микрофон қай топқа жатады?</strong>
+            <label><input type="radio" name="q25" value="correct"> Ақпаратты енгізу құрылғыларына</label><br>
+            <label><input type="radio" name="q25" value="b"> Ақпаратты шығару құрылғыларына</label><br>
+            <label><input type="radio" name="q25" value="c"> Сақтау құрылғыларына</label>
+          </div>
+          <!-- q26 -->
+          <div class="question">
+            <strong>26. Веб-камера не істейді?</strong>
+            <label><input type="radio" name="q26" value="correct"> Суретті жібереді (бейне байланыс, фото)</label><br>
+            <label><input type="radio" name="q26" value="b"> Құжаттарды басып шығарады</label><br>
+            <label><input type="radio" name="q26" value="c"> Дыбысты шығарады</label>
+          </div>
+          <!-- q27 -->
+          <div class="question">
+            <strong>27. Компьютердің сыртқы құрылғылары не үшін қажет?</strong>
+            <label><input type="radio" name="q27" value="correct"> Адам мен компьютер арасында ақпарат алмасу үшін</label><br>
+            <label><input type="radio" name="q27" value="b"> Тек жүйелік файлдарды сақтауға арналған</label><br>
+            <label><input type="radio" name="q27" value="c"> Компоненттерді салқындату үшін</label>
+          </div>
+          <!-- q28 -->
+          <div class="question">
+            <strong>28. Компьютерге дыбысты енгізуге қандай құрылғы көмектеседі?</strong>
+            <label><input type="radio" name="q28" value="correct"> Микрофон</label><br>
+            <label><input type="radio" name="q28" value="b"> Құлаққаптар</label><br>
+            <label><input type="radio" name="q28" value="c"> Принтер</label>
+          </div>
+          <!-- q29 -->
+          <div class="question">
+            <strong>29. Мониторды өшіргенде не болады?</strong>
+            <label><input type="radio" name="q29" value="correct"> Сурет көрсетілмейді</label><br>
+            <label><input type="radio" name="q29" value="b"> Компьютер өшеді</label><br>
+            <label><input type="radio" name="q29" value="c"> Дыбыс жоғалады</label>
+          </div>
+          <!-- q30 -->
+          <div class="question">
+            <strong>30. Барлық сыртқы құрылғыларды не біріктіреді?</strong>
+            <label><input type="radio" name="q30" value="correct"> Олар компьютермен өзара әрекеттесуге көмектеседі</label><br>
+            <label><input type="radio" name="q30" value="b"> Олар операциялық жүйені сақтайды</label><br>
+            <label><input type="radio" name="q30" value="c"> Олар корпустың ішінде</label>
+          </div>
+
+          <!-- Topic 3: software (q31..q45) -->
+          <h3>3-тақырып: Бағдарламалық қамтамасыз ету</h3>
+          <!-- q31 -->
+          <div class="question">
+            <strong>31. Бағдарламалық жасақтама дегеніміз не?</strong>
+            <label><input type="radio" name="q31" value="correct"> Компьютерді басқаратын барлық бағдарламалардың жиынтығы</label><br>
+            <label><input type="radio" name="q31" value="b"> Барлық құрылғылардың жиынтығы</label><br>
+            <label><input type="radio" name="q31" value="c"> Тек Операциялық жүйе</label>
+          </div>
+          <!-- q32 -->
+          <div class="question">
+            <strong>32. Операциялық жүйе (ОЖ) болмаса компьютер жұмыс істей ала ма?</strong>
+            <label><input type="radio" name="q32" value="correct"> Жоқ, Операциялық жүйе қажет</label><br>
+            <label><input type="radio" name="q32" value="b"> Ия, браузер жеткілікті</label><br>
+            <label><input type="radio" name="q32" value="c"> Иә, тек драйверлер жеткілікті</label>
+          </div>
+          <!-- q33 -->
+          <div class="question">
+            <strong>33. Windows қандай бағдарлама түріне жатады?</strong>
+            <label><input type="radio" name="q33" value="correct"> Жүйелік бағдарламалық жасақтамаға</label><br>
+            <label><input type="radio" name="q33" value="b"> Қолданбалы бағдарламалық жасақтамаға</label><br>
+            <label><input type="radio" name="q33" value="c"> Бағдарламалау жүйесіне</label>
+          </div>
+          <!-- q34 -->
+          <div class="question">
+            <strong>34. Операциялық жүйе не істейді?</strong>
+            <label><input type="radio" name="q34" value="correct"> Компьютердің жұмысын және барлық құрылғыларды басқарады</label><br>
+            <label><input type="radio" name="q34" value="b"> Интернетті жылдамдатады</label><br>
+            <label><input type="radio" name="q34" value="c"> Музыканы сақтайды</label>
+          </div>
+          <!-- q35 -->
+          <div class="question">
+            <strong>35. Драйвер дегеніміз не?</strong>
+            <label><input type="radio" name="q35" value="correct"> ОЖ құрылғыларды "түсінуге" көмектесетін бағдарлама</label><br>
+            <label><input type="radio" name="q35" value="b"> Музыка тыңдауға арналған бағдарлама</label><br>
+            <label><input type="radio" name="q35" value="c"> Сақтау құрылғысы</label>
+          </div>
+          <!-- q36 -->
+          <div class="question">
+            <strong>36. Қолданбалы бағдарламаларға не жатады?</strong>
+            <label><input type="radio" name="q36" value="correct"> Microsoft Word, Excel, Paint</label><br>
+            <label><input type="radio" name="q36" value="b"> BIOS</label><br>
+            <label><input type="radio" name="q36" value="c"> Windows (ОЖ)</label>
+          </div>
+          <!-- q37 -->
+          <div class="question">
+            <strong>37. Қолданбалы бағдарлама не үшін қажет?</strong>
+            <label><input type="radio" name="q37" value="correct"> Пайдаланушының нақты тапсырмаларын орындау үшін</label><br>
+            <label><input type="radio" name="q37" value="b"> Компьютердің жадын басқару үшін</label><br>
+            <label><input type="radio" name="q37" value="c"> Жүйені салқындату үшін</label>
+          </div>
+          <!-- q38 -->
+          <div class="question">
+            <strong>38. Бағдарламашылар жаңа бағдарламалар жасау үшін қандай құралдарды қолданады?</strong>
+            <label><input type="radio" name="q38" value="correct"> Бағдарламалау жүйелері (Python, C++, т.б.)</label><br>
+            <label><input type="radio" name="q38" value="b"> Утилиталар</label><br>
+            <label><input type="radio" name="q38" value="c"> Монитор</label>
+          </div>
+          <!-- q39 -->
+          <div class="question">
+            <strong>39. Төмендегілердің қайсысы бағдарламалау жүйесі болып табылады?</strong>
+            <label><input type="radio" name="q39" value="correct"> Python</label><br>
+            <label><input type="radio" name="q39" value="b"> Excel</label><br>
+            <label><input type="radio" name="q39" value="c"> Chrome</label>
+          </div>
+          <!-- q40 -->
+          <div class="question">
+            <strong>40. Утилиталар не істейді?</strong>
+            <label><input type="radio" name="q40" value="correct"> Жүйені күтіп ұстауға және конфигурациялауға көмектеседі</label><br>
+            <label><input type="radio" name="q40" value="b"> Бейнелерді ойнатады</label><br>
+            <label><input type="radio" name="q40" value="c"> Бағдарламалар жасайды</label>
+          </div>
+          <!-- q41 -->
+          <div class="question">
+            <strong>41. Графикалық карта драйвері қай топқа жатады?</strong>
+            <label><input type="radio" name="q41" value="correct"> Жүйелік бағдарламалық жасақтама</label><br>
+            <label><input type="radio" name="q41" value="b"> Мәтіндік құжат</label><br>
+            <label><input type="radio" name="q41" value="c"> Бейне файл</label>
+          </div>
+          <!-- q42 -->
+          <div class="question">
+            <strong>42. Антивирустық бағдарлама не істейді?</strong>
+            <label><input type="radio" name="q42" value="correct"> Компьютерді зиянды бағдарламалардан қорғайды</label><br>
+            <label><input type="radio" name="q42" value="b"> Интернетті жылдамдатады</label><br>
+            <label><input type="radio" name="q42" value="c"> Қуатты басқарады</label>
+          </div>
+          <!-- q43 -->
+          <div class="question">
+            <strong>43. Google Chrome қандай бағдарламаға жатады?</strong>
+            <label><input type="radio" name="q43" value="correct"> Қолданбалы бағдарлама</label><br>
+            <label><input type="radio" name="q43" value="b"> Операциялық жүйе</label><br>
+            <label><input type="radio" name="q43" value="c"> BIOS</label>
+          </div>
+          <!-- q44 -->
+          <div class="question">
+            <strong>44. Бағдарламалық жасақтама не үшін қызмет етеді?</strong>
+            <label><input type="radio" name="q44" value="correct"> Компьютер пайдаланушыға қажетті тапсырмаларды орындауы үшін</label><br>
+            <label><input type="radio" name="q44" value="b"> Компоненттерді салқындату үшін</label><br>
+            <label><input type="radio" name="q44" value="c"> Деректерді сақтауға арналған</label>
+          </div>
+          <!-- q45 -->
+          <div class="question">
+            <strong>45. Неліктен бағдарламалық жасақтама "компьютердің жаны" деп аталады?</strong>
+            <label><input type="radio" name="q45" value="correct"> Себебі онсыз компьютер жұмыс істей алмайды</label><br>
+            <label><input type="radio" name="q45" value="b"> Себебі ол жадта сақталады</label><br>
+            <label><input type="radio" name="q45" value="c"> Себебі ол темірден тұрады</label>
+          </div>
+
+          <div class="nav center">
+            <button type="button" class="btn secondary" onclick="go(5)">Артқа</button>
+            <button type="button" class="btn" onclick="finishQuiz()">Тестті аяқтау</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Page 7: Result / Diploma -->
+    <div id="pg7" class="card page center">
+      <div class="result-box" id="resultBox" style="display:none">
+        <img src="emblem.png" alt="LiYana logo" class="emblem"
+         style="width: 100px; display: block; margin: 20px auto;">
+        <h2 id="congratsLine">Құттықтаймыз!</h2>
+        <div id="userInfo" style="margin-bottom:10px;color:var(--muted)"></div>
+        <div class="score" id="scoreVal">-- / 100</div>
+        <p id="correctCount" style="color:#333;margin-top:8px"></p>
+
+        <div class="diploma" id="diplomaPreview" style="margin-top:12px">
+          <h3 style="margin:6px 0">«LiYana programmi» жобасы</h3>
+          <div id="diplomaName" style="font-size:20px;font-weight:700;margin-top:6px"></div>
+          <div id="diplomaGroup" style="margin-top:6px;color:var(--muted)"></div>
+          <div style="margin-top:12px;font-size:16px">Бағдарламалау негіздері курсын сәтті аяқтады</div>
+          <div style="margin-top:18px;font-size:22px;font-weight:800;color:var(--blue)" id="diplomaScore"></div>
+        </div>
+
+        <div style="margin-top:14px">
+          <button class="btn" onclick="downloadPDF()">Жүктеп алу (PDF ретінде)</button>
+          <button class="btn secondary" onclick="restart()">Қайтадан өту</button>
+        </div>
+      </div>
+
+      <div id="noResult" style="display:none">
+        <p>Ешқандай нәтиже жоқ — алдымен тестті тапсырыңыз.</p>
+        <button class="btn" onclick="go(6)">Тестке өту</button>
+      </div>
+    </div>
+
+    <footer>
+      © LiYana programmi — барлығы қазақ тілінде
+    </footer>
+  </div>
+
+<script>
+  // Навигация
+  function go(n){
+    document.querySelectorAll('.page').forEach(el=>el.classList.remove('visible'));
+    const target = document.getElementById('pg'+n);
+    if(target) target.classList.add('visible');
+    window.scrollTo(0,0);
+  }
+  // стартовая страница уже видима (pg1)
+
+  // Проверка теста
+  function finishQuiz(){
+    // проверяем, что на все 45 вопросов есть ответ
+    const total = 45;
+    let answered = 0;
+    for(let i=1;i<=total;i++){
+      const radios = document.getElementsByName('q'+i);
+      const any = Array.from(radios).some(r=>r.checked);
+      if(any) answered++;
+    }
+    if(answered < total){
+      if(!confirm(`Сен барлық ${total} сұраққа жауап бердің бе? Қазір ${answered} жауап берілген.\nБарлық сұрақтарға жауап бермесең нәтиже есептелмейді.\nЖалғастыру керек пе?`)){
+        return;
+      }
+    }
+    // подсчет правильных
+    let correct = 0;
+    for(let i=1;i<=total;i++){
+      const radios = document.getElementsByName('q'+i);
+      const sel = Array.from(radios).find(r => r.checked);
+      if(sel && sel.value === 'correct') correct++;
+    }
+    const percent = Math.round((correct/total)*100);
+    showResult(correct, total, percent);
+    go(7);
+  }
+
+  // Показ результата и формирование диплома
+  function showResult(correct, total, percent){
+    document.getElementById('resultBox').style.display = 'block';
+    document.getElementById('noResult').style.display = 'none';
+
+    // сохраняем в localStorage (локально)
+    const timestamp = new Date().toLocaleString();
+    const record = {date: timestamp, correct, total, percent};
+    let arr = JSON.parse(localStorage.getItem('liyana_results') || '[]');
+    arr.push(record);
+    localStorage.setItem('liyana_results', JSON.stringify(arr));
+
+    // вывод
+    document.getElementById('scoreVal').textContent = `${percent} / 100 ұпай`;
+    document.getElementById('correctCount').textContent = `${correct} / ${total} сұрақ дұрыс жауап берілді`;
+
+    // diplomas: пользовательские данные: спросим имя и группу прямо сейчас через prompt
+    // (Можно улучшить: сделать отдельную форму; но по условию - сохраняем простую возможность)
+    let name = prompt("Атыңызды енгізіңіз (аты-жөніңіз):","Атыңыз Жөніңіз");
+    if(!name) name = "Студент";
+    let group = prompt("Тобыңызды енгізіңіз (мысалы: IT-202):","Тобыңыз");
+    if(!group) group = "";
+
+    document.getElementById('userInfo').textContent = `${name}${group ? ' — ' + group : ''}`;
+    document.getElementById('diplomaName').textContent = name;
+    document.getElementById('diplomaGroup').textContent = group ? group + " тобының студенті" : '';
+    document.getElementById('diplomaScore').textContent = `${percent} / 100 ұпай`;
+  }
+
+  function downloadPDF(){
+    // Мы используем print: пользователь сможет сохранить как PDF (в браузере)
+    // Скрываем элементы интерфейса, затем вызываем печать.
+    window.print();
+  }
+
+  function restart(){
+    // сброс ответов
+    document.getElementById('quizForm').reset();
+    document.getElementById('resultBox').style.display = 'none';
+    go(1);
+  }
+</script>
+</body>
+</html>
